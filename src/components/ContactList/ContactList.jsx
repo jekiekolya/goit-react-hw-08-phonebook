@@ -31,7 +31,7 @@ function ContactList() {
   return (
     <Box>
       {isLoading ? (
-        <ThreeDots color="#00aeff" />
+        <ThreeDots color="#02897A" />
       ) : (
         <ContactsList>
           {filteredContacts.map(contact => {

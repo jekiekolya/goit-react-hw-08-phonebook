@@ -9,6 +9,7 @@ import InputField from '../InputField';
 import Button from '../Button';
 
 import { Form } from './ContactForm.styled';
+import { Box } from 'components/Box';
 
 function FormAddContact() {
   const contacts = useSelector(getContacts);
@@ -43,31 +44,35 @@ function FormAddContact() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputField
-        nameLabel="Name"
-        type="text"
-        name="name"
-        value={name}
-        placeholder="Jekie Kolya"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        onChange={handleChangeName}
-      />
+      <Box display="flex" flexDirection="column" gridGap={32}>
+        <InputField
+          nameLabel="Name"
+          type="text"
+          name="name"
+          value={name}
+          placeholder="Jekie Kolya"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          onChange={handleChangeName}
+        />
 
-      <InputField
-        nameLabel="Phone"
-        type="tel"
-        name="phone"
-        value={phone}
-        placeholder="777-77-77"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone phone must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        onChange={handleChangePhone}
-      />
+        <InputField
+          nameLabel="Phone"
+          type="tel"
+          name="phone"
+          value={phone}
+          placeholder="777-77-77"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone phone must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          onChange={handleChangePhone}
+        />
 
-      <Button name="Add contact" />
+        <Box display="flex" justifyContent="center">
+          <Button name="Add contact" />
+        </Box>
+      </Box>
     </Form>
   );
 }

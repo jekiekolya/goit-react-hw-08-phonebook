@@ -4,27 +4,37 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.space[2]}px;
-
-  margin-bottom: ${p => p.theme.space[4]}px;
 `;
 
 export const Input = styled.input`
-  width: ${p => p.theme.space[7]}px;
+  width: 100%;
+  padding-top: ${p => p.theme.space[3]}px;
+  padding-right: ${p => p.theme.space[4]}px;
+  padding-bottom: ${p => p.theme.space[3]}px;
+  padding-left: ${p => p.theme.space[4]}px;
 
-  padding: ${p => p.theme.space[2]}px;
+  font-size: ${p => p.theme.fontsSizes.m}px;
+  font-weight: 500;
 
-  font-size: ${p => p.theme.fontsSizes.s}px;
+  background-color: ${p => p.theme.colors.mainBg};
 
-  border: 1px solid ${p => p.theme.colors.border};
-  border-radius: ${p => p.theme.space[1]}px;
+  border: 2px solid ${p => p.theme.colors.border};
+  border-radius: ${p => p.theme.space[3]}px;
+
+  color: ${p => p.theme.colors.accentSecondary};
 
   &:focus-within {
-    border: 1px solid ${p => p.theme.colors.accent};
-    filter: drop-shadow(0px 4px 4px ${p => p.theme.colors.accent});
+    border: 2px solid ${p => p.theme.colors.accent};
+    filter: drop-shadow(0px 3px 3px ${p => p.theme.colors.accent});
     outline: none;
   }
 `;
 
 export const NameLabel = styled.span`
+  margin-bottom: ${p => p.theme.space[2]}px;
+
   font-size: ${p => p.theme.fontsSizes.m}px;
+  font-weight: 600;
+
+  color: ${p => p.theme.colors.accentSecondary};
 `;
