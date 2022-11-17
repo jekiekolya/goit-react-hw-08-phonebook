@@ -1,8 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ThreeDots } from 'react-loader-spinner';
 
-import { getIsLoading, getFilteredContacts } from 'redux/selectors';
-import { fetchContacts, deleteContact } from 'redux/contacts/operations';
+import {
+  getIsLoading,
+  getFilteredContacts,
+  getIsLoggedIn,
+} from 'redux/selectors';
+import {
+  fetchContacts,
+  deleteContact,
+} from 'redux/contacts/contactsOperations';
 
 import {
   ContactsList,
@@ -19,14 +26,18 @@ import { useEffect } from 'react';
 function ContactList() {
   const filteredContacts = useSelector(getFilteredContacts);
   const isLoading = useSelector(getIsLoading);
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
   const dispatch = useDispatch();
   const deleteContactReducer = contactId => {
     dispatch(deleteContact(contactId));
   };
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if (isLoggedIn) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, isLoggedIn]);
 
   return (
     <Box>
@@ -39,7 +50,7 @@ function ContactList() {
               <ContactItem key={contact.id}>
                 <Icon />
                 <NameContact>
-                  {contact.name}: {contact.phone}
+                  {contact.name}: {contact.number}
                 </NameContact>
                 <Button
                   type="button"

@@ -1,5 +1,8 @@
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { fetchCurrentUser } from 'redux/auth/authOperations';
 
 import { Header } from './index';
 
@@ -20,6 +23,12 @@ const NotFound = lazy(() =>
 );
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>

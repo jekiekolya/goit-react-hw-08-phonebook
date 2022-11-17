@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contacts/operations';
+import { addContact } from 'redux/contacts/contactsOperations';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -14,7 +14,7 @@ import { Box } from 'components/Box';
 function FormAddContact() {
   const contacts = useSelector(getContacts);
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
 
@@ -22,8 +22,8 @@ function FormAddContact() {
     setName(e.currentTarget.value);
   };
 
-  const handleChangePhone = e => {
-    setPhone(e.currentTarget.value);
+  const handleChangeNumber = e => {
+    setNumber(e.currentTarget.value);
   };
 
   const handleSubmit = e => {
@@ -32,14 +32,14 @@ function FormAddContact() {
     const statusValidation = checkEqualValue.call(contacts, name);
     if (statusValidation === 'alert') return;
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     // reset values in form
     resetForm('', '');
   };
 
-  function resetForm(resetName, resetPhone) {
+  function resetForm(resetName, resetNumber) {
     setName(resetName);
-    setPhone(resetPhone);
+    setNumber(resetNumber);
   }
 
   return (
@@ -58,15 +58,15 @@ function FormAddContact() {
         />
 
         <InputField
-          nameLabel="Phone"
+          nameLabel="number"
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           placeholder="777-77-77"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone phone must be digits and can contain spaces, dashes, parentheses and can start with +"
+          title="number number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          onChange={handleChangePhone}
+          onChange={handleChangeNumber}
         />
 
         <Box display="flex" justifyContent="center">

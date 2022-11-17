@@ -1,3 +1,6 @@
+import { Suspense } from 'react';
+import { getIsLoggedIn } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -5,10 +8,12 @@ import Typography from '@mui/material/Typography';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 
 import UserMenu from 'components/UserMenu/UserMenu';
+import AuthNav from 'components/AuthNav/AuthNav';
 
 import { Nav, NavList, NavItem, NavLinkStyled } from './Header.styled';
-import { Suspense } from 'react';
 export default function Header() {
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
   return (
     <>
       <AppBar position="fixed" color="header">
@@ -31,13 +36,15 @@ export default function Header() {
               <NavItem>
                 <NavLinkStyled to="/">Home</NavLinkStyled>
               </NavItem>
-              <NavItem>
-                <NavLinkStyled to="contacts">Contacts</NavLinkStyled>
-              </NavItem>
+              {isLoggedIn && (
+                <NavItem>
+                  <NavLinkStyled to="contacts">Contacts</NavLinkStyled>
+                </NavItem>
+              )}
             </NavList>
           </Nav>
 
-          <UserMenu />
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </Toolbar>
       </AppBar>
       <Suspense>
