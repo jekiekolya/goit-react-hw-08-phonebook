@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[268],{9544:function(e,t,n){n.r(t),n.d(t,{default:function(){return i}});var o=n(9457),r=n(184);function i(){return(0,r.jsx)(o.x,{bg:"mainBg",color:"text",padding:"30px",mt:"60px",children:"Here wil be slider how it is work"})}}}]);
-//# sourceMappingURL=Home.a7e8ef62.chunk.js.map
