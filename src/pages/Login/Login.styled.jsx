@@ -24,13 +24,13 @@ export const Form = styled.form`
 
 export const NavLinkStyled = styled(NavLink)`
   display: block;
+
   padding-top: ${p => p.theme.space[4]}px;
   padding-right: ${p => p.theme.space[6]}px;
   padding-bottom: ${p => p.theme.space[4]}px;
   padding-left: ${p => p.theme.space[6]}px;
 
   color: ${p => p.theme.colors.accentSecondary};
-  outline: 2px solid ${p => p.theme.colors.accentSecondary};
 
   &&.active {
     color: ${p => p.theme.colors.mainBg};
@@ -44,4 +44,13 @@ export const ButtonStyled = styled(Button)`
   padding-right: ${p => p.theme.space[6]}px;
   padding-bottom: ${p => p.theme.space[4]}px;
   padding-left: ${p => p.theme.space[6]}px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: ${p => p.theme.space[3]}px;
+  overflow: hidden;
+  outline: 2px solid ${p => p.theme.colors.accentSecondary};
 `;

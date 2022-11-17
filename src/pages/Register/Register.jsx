@@ -2,7 +2,13 @@ import { Box } from 'components/Box';
 import InputField from 'components/InputField';
 import registerIcon from '../../images/Register.svg';
 
-import { Form, Title, NavLinkStyled, ButtonStyled } from './Register.styled';
+import {
+  Form,
+  Title,
+  NavLinkStyled,
+  ButtonStyled,
+  Container,
+} from './Register.styled';
 
 export default function Register() {
   return (
@@ -58,17 +64,10 @@ export default function Register() {
           </Box>
 
           <Box display="flex" justifyContent="center" mt="64px">
-            <Box
-              display="flex"
-              justifyContent="center"
-              borderRadius={10}
-              overflow="hidden"
-              border="2px solid"
-              borderColor="#02897A"
-            >
+            <Container>
               <NavLinkStyled to="/login"> Login</NavLinkStyled>
               <NavLinkStyled to="/register">Register</NavLinkStyled>
-            </Box>
+            </Container>
           </Box>
         </Form>
       </Box>

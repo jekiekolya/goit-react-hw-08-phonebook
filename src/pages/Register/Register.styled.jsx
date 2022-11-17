@@ -44,3 +44,12 @@ export const ButtonStyled = styled(Button)`
   padding-bottom: ${p => p.theme.space[4]}px;
   padding-left: ${p => p.theme.space[6]}px;
 `;
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: ${p => p.theme.space[3]}px;
+  overflow: hidden;
+  outline: 2px solid ${p => p.theme.colors.accentSecondary};
+`;

@@ -2,7 +2,13 @@ import { Box } from 'components/Box';
 import InputField from 'components/InputField';
 import loginIcon from '../../images/Login.svg';
 
-import { Form, Title, NavLinkStyled, ButtonStyled } from './Login.styled';
+import {
+  Form,
+  Title,
+  NavLinkStyled,
+  ButtonStyled,
+  Container,
+} from './Login.styled';
 import Checkbox from '@mui/material/Checkbox';
 
 export default function Login() {
@@ -54,18 +60,10 @@ export default function Login() {
           </Box>
 
           <Box display="flex" justifyContent="center" mt="64px">
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              borderRadius={10}
-              overflow="hidden"
-              border="2px solid"
-              borderColor="#02897A"
-            >
+            <Container>
               <NavLinkStyled to="/login"> Login</NavLinkStyled>
               <NavLinkStyled to="/register">Register</NavLinkStyled>
-            </Box>
+            </Container>
           </Box>
         </Form>
       </Box>
