@@ -47,6 +47,7 @@ export default function Login() {
     if (isLoggedIn) {
       resetForm('', '');
       navigate('/');
+      return;
     }
   }, [isLoggedIn, navigate]);
 

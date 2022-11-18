@@ -51,6 +51,7 @@ export default function Register() {
     if (isLoggedIn) {
       resetForm('', '', '');
       navigate('/');
+      return;
     }
   }, [navigate, isLoggedIn]);
 
