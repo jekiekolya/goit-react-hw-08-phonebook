@@ -1,15 +1,10 @@
 import { Box } from 'components/Box';
+import StepperInstruction from './StepperInstruction/StepperInstruction';
 
 export default function Home() {
   return (
-    <Box
-      bg="mainBg"
-      color="text"
-      padding="30px"
-      mt="60px"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    ></Box>
+    <Box padding="30px" mt="60px" mr="auto" ml="auto" width={1200}>
+      <StepperInstruction />
+    </Box>
   );
 }

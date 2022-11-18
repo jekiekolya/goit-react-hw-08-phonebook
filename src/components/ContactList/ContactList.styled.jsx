@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { MdPermContactCalendar } from 'react-icons/md';
 
+import Button from '../Button';
+
 export const ContactsList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@ export const ContactItem = styled.li`
   grid-template-columns:
     ${p => p.theme.space[4]}px
     1fr
-    ${p => p.theme.space[7]}px;
+    ${p => p.theme.space[8]}px;
   grid-template-rows: ${p => p.theme.space[5]}px;
   grid-column-gap: ${p => p.theme.space[5]}px;
   justify-content: space-between;
@@ -40,4 +42,13 @@ export const Icon = styled(MdPermContactCalendar)`
   width: ${p => p.theme.space[4]}px;
   height: ${p => p.theme.space[4]}px;
   color: ${p => p.theme.colors.accentSecondary};
+`;
+
+export const ButtonRed = styled(Button)`
+  color: #f03e3d;
+  border-color: #f03e3d;
+
+  &&:active {
+    background-color: #f03e3d;
+  }
 `;

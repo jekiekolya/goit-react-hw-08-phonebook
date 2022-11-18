@@ -58,7 +58,7 @@ function FormAddContact() {
         />
 
         <InputField
-          nameLabel="number"
+          nameLabel="Number"
           type="tel"
           name="number"
           value={number}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThreeDots } from 'react-loader-spinner';
 
@@ -11,17 +12,16 @@ import {
   deleteContact,
 } from 'redux/contacts/contactsOperations';
 
+import { Box } from '../Box';
+import ModalUpdate from 'components/ModalUpdate/ModalUpdate';
+
 import {
   ContactsList,
   ContactItem,
   Icon,
   NameContact,
+  ButtonRed,
 } from './ContactList.styled';
-
-import Button from '../Button';
-
-import { Box } from '../Box';
-import { useEffect } from 'react';
 
 function ContactList() {
   const filteredContacts = useSelector(getFilteredContacts);
@@ -52,11 +52,18 @@ function ContactList() {
                 <NameContact>
                   {contact.name}: {contact.number}
                 </NameContact>
-                <Button
-                  type="button"
-                  name="Delete"
-                  onClick={() => deleteContactReducer(contact.id)}
-                />
+                <Box display="flex" justifyContent="end" gridGap={2}>
+                  <ModalUpdate
+                    name={contact.name}
+                    number={contact.number}
+                    contactId={contact.id}
+                  />
+                  <ButtonRed
+                    type="button"
+                    name="Delete"
+                    onClick={() => deleteContactReducer(contact.id)}
+                  />
+                </Box>
               </ContactItem>
             );
           })}
