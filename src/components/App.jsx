@@ -6,6 +6,8 @@ import { fetchCurrentUser } from 'redux/auth/authOperations';
 
 import { Header } from './index';
 
+import NotFound from 'pages/NotFound/NotFound';
+
 const Home = lazy(() =>
   import('../pages/Home/Home' /* webpackChunkName: "Home" */)
 );
@@ -17,9 +19,6 @@ const Login = lazy(() =>
 );
 const Register = lazy(() =>
   import('../pages/Register/Register' /* webpackChunkName: "Register" */)
-);
-const NotFound = lazy(() =>
-  import('../pages/NotFound/NotFound' /* webpackChunkName: "NotFound" */)
 );
 
 export function App() {
