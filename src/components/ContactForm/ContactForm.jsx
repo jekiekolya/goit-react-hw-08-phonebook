@@ -28,6 +28,7 @@ function FormAddContact() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     // Check input value and create notification
     const statusValidation = checkEqualValue.call(contacts, name);
     if (statusValidation === 'alert') return;
